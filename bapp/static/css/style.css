@@ -1,0 +1,27 @@
+
+.card-header{
+    background-color: #db1327 !important;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.card{
+    background-color: rgb(250, 115, 115);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+

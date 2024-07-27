@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body class="container mt-5">
+    <div class="card">
+        <h5 class="card-header text-center">Donor Profile</h5>
+        <div class="card-body">
+            {% if registration %}
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>User Type</th>
+                            <th>Blood Type Group</th>
+                            <th>Username</th>
+                            <th>User Age</th>
+                            <th>User Mobile</th>
+                            <th>User Email</th>
+                            <th>User Gender</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reg in registration %}
+                            <tr>
+                                <td>{{ reg.get_user_type_display }}</td>
+                                <td>{{ reg.get_blood_type_group_display }}</td>
+                                <td>{{ reg.username }}</td>
+                                <td>{{ reg.userage }}</td>
+                                <td>{{ reg.usermobile }}</td>
+                                <td>{{ reg.useremail }}</td>
+                                <td>{{ reg.usergender }}</td>
+                                <td>
+                                    {{ reg.flat_no }}, {{ reg.street }},<br>
+                                    {{ reg.village }}, {{ reg.town }},<br>
+                                    {{ reg.district }}, {{ reg.state }},<br>
+                                    {{ reg.pincode }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <!--<a href="{% url 'profile' %}" class="btn btn-primary mr-2">View Profile</a>-->
+                    <!--<a href="{% url 'register' %}" class="btn btn-primary">Register New User</a>-->
+                    <a href="{% url 'index' %}" class="btn btn-primary">Go Home Page</a>
+                    
+                </div>
+            {% else %}
+                <p class="text-center">No registrations found.</p>
+                <div class="text-center">
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

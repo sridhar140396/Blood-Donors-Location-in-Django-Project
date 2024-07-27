@@ -1,0 +1,248 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Register</title>
+    <!-- Bootstrap CSS-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"/> -->
+    <style>
+        /* Custom CSS */
+
+        body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4efef;
+}
+
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-header {
+    background-color: #ff5722;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: aqua;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"], input[type="email"], input[type="number"], select {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 36px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e64a19;
+}
+
+a.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+a.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Add some animation to the form */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Add some hover effects to the form fields */
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="number"]:hover, select:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add some color to the form fields */
+
+input[type="text"], input[type="email"], input[type="number"], select {
+    border-bottom: 2px solid #ff5722;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus {
+    border-bottom: 2px solid #e64a19;
+}
+
+
+
+    </style>
+</head>
+<body class="container mt-5">
+    <div class="card">
+        <h5 class="card-header text-center">User Register Form</h5>
+        <div class="card-body">
+            <form method="post" id="register-form" action="">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        {{ form.user_type.label_tag }}
+                        {{ form.user_type }}
+                        {{ form.user_type.errors }}
+                    </div>
+                    <div class="form-group col-sm-6">
+                        {{ form.blood_type_group.label_tag }}
+                        {{ form.blood_type_group }}
+                        {{ form.blood_type_group.errors }}
+                    </div>
+                </div>
+                <div class="row mx-2">
+                    <h4>Contact</h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.userage.label_tag }}
+                        {{ form.userage }}
+                        {{ form.userage.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.usermobile.label_tag }}
+                        {{ form.usermobile }}
+                        {{ form.usermobile.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.useremail.label_tag }}
+                        {{ form.useremail }}
+                        {{ form.useremail.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.usergender.label_tag }}
+                        {{ form.usergender }}
+                        {{ form.usergender.errors }}
+                    </div>
+                </div>
+                <div class="row mx-2">
+                    <h4>Address</h4>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.flat_no.label_tag }}
+                        {{ form.flat_no }}
+                        {{ form.flat_no.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.street.label_tag }}
+                        {{ form.street }}
+                        {{ form.street.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.village.label_tag }}
+                        {{ form.village }}
+                        {{ form.village.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.town.label_tag }}
+                        {{ form.town }}
+                        {{ form.town.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.district.label_tag }}
+                        {{ form.district }}
+                        {{ form.district.errors }}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ form.state.label_tag }}
+                        {{ form.state }}
+                        {{ form.state.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ form.pincode.label_tag }}
+                        {{ form.pincode }}
+                        {{ form.pincode.errors }}
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-primary" type="submit">Register</button>
+                        <a href="{% url 'index' %}" class="btn btn-secondary">Back to Home</a>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            var userAge = document.getElementById('id_userage').value;
+            if (userAge < 18) {
+                alert("You must be 18 years or older to donate blood.");
+                event.preventDefault();  // Prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>

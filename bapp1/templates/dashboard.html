@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <style>
+        /* Custom CSS for Dashboard */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff; /* Bootstrap primary color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade of primary color */
+    border-color: #0056b3; /* Darker shade of primary color */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    border-color: #6c757d; /* Bootstrap secondary color */
+}
+
+.btn-secondary:hover {
+    background-color: #545b62; /* Darker shade of secondary color */
+    border-color: #545b62; /* Darker shade of secondary color */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.ml-2 {
+    margin-left: 0.5rem;
+}
+
+/* Add more custom styles as needed */
+
+    </style>
+</head>
+<body class="container mt-5">
+    <div class="card">
+        <h5 class="card-header text-center">dashboard_view</h5>
+        <div class="card-body">
+            <h6>Welcome to Your Dashboard</h6>
+            <p>"Welcome to your personalized dashboard, where you can access vital information and manage your interactions effortlessly.
+                 This space provides a comprehensive overview of your activities, including recent updates, statistics, and essential details related to your profile. 
+                 Stay informed and in control as you navigate through various features tailored to enhance your experience. 
+                 Whether you're a donor, seeker, or healthcare provider, this dashboard empowers you to efficiently manage your engagements and contribute to our community's shared goal of saving lives."</p>
+            <div class="text-center">
+                <a href="{% url 'profile' %}" class="btn btn-primary mr-2">View Profile</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Register New User</a>
+                <a href="{% url 'index' %}" class="btn btn-primary">Go Home Page</a>
+                <!-- Add more buttons or links as needed -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
